@@ -42,15 +42,24 @@ var employees = [
   }
 ];
 // Do not edit the code above.
-
 /*
   Create a function called 'employeeUpdater' that takes no parameters. employeeUpdater will loop over the array above and perform the following:
     1. If employee's first name is Theo, remove that employee because he just got fired.
     2. If the employee's first name is Lorie, change her department to 'HR'.
     3. Return the updated employee array.
 */
-
 //Code Here
+
+const employeeUpdater = () => {
+  for (let i = employees.length -1; i >= 0; i--) {
+    employees[i].firstName === "Theo" ? employees.splice(i,1)
+      : employees[i].firstName === 'Lorie' ? employees[i].department = 'HR' : null
+  }
+  return employees
+}
+
+
+
 
 
 
@@ -69,8 +78,20 @@ var workplaceAccidents = [12, 56, 44, 3, 29, 56, 56, 3, 7, 12];
 */
 
 //Code Here
-
-
+const removeDuplicates = () => {
+  const obj = {},
+        bkToArr = [];
+        for (let i = 0;i < workplaceAccidents.length; i++) {
+          obj[workplaceAccidents[i]] = 0;
+        }
+        console.log('end of loop 1', obj)
+     for (let i in obj) {
+       console.log(i)
+      bkToArr.push(i);
+    }
+    // console.log('end of loop 2', bkToArr)
+    return bkToArr
+  }
 
 ////////// PROBLEM 3 //////////
 
@@ -89,7 +110,6 @@ var cat = {
   ]
 }
 // Do not edit the code above.
-
 /*
   Fluffy has two friends, Grumpy and Lazy Bones. 
     1. Assign the value of Grumpy's 2nd activity to the grumpyActivity variable below.
@@ -97,8 +117,10 @@ var cat = {
 */
 
 //Code Here
-var grumpyActivity;
-var fluffy2ndFriend;
+
+var grumpyActivity = cat.catFriends[0].activities[1]
+var fluffy2ndFriend = cat.catFriends[1].name
+console.log(grumpyActivity)
 
 
 
@@ -140,6 +162,16 @@ var myCar = {
 
 //Code Here
 
+const recordCleaner = () => {
+  for (let i = 0; i < myCar.accidents.length; i++) {
+  myCar.accidents[i].atFaultForAccident = false;
+  }
+  return myCar
+}
+
+// for (let key in obj.accidents) {
+
+// }
 
 
 ////////// PROBLEM 5 //////////
@@ -158,5 +190,13 @@ var numsArr = [ [1, 2, 3, 4], [5, 6], [7, 8, 9, 10, 11]];
 */
 
 //Code Here
-
+const looper = () => {
+  for (let i = 0; i < numsArr.length; i++) {
+    for (let j = 0; j < numsArr[i].length; j++) {
+    // console.log('teehee', numsArr)
+    numsArr[i][j] % 2 === 1 ? numsArr[i][j] = 'odd' : numsArr[i][j] = 'even'
+    }
+  }
+  return numsArr
+}
 

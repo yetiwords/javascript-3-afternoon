@@ -23,7 +23,7 @@ var carDetails = {
 
 //Code Here
 
-
+const {color,make,model,year} = carDetails; 
 
 ////////// PROBLEM 2 //////////
 
@@ -35,16 +35,16 @@ var carDetails = {
 
 function greeting( obj ) {
   //Code Here
+const {firstName, lastName, title} = obj
+
   
+
   // Do not edit the code below.
   return 'Hello, ' + title + ' ' + firstName + ' ' + lastName + '!';
   // Do not edit the code above.
 }
 
-
-
 ////////// PROBLEM 3 //////////
-
 /*
   Write a function called totalPopulation that will take in an object.
   That object will have 4 properties named utah, california, texas and arizona.
@@ -52,13 +52,16 @@ function greeting( obj ) {
   Use object destructuring to save the property values to new variables.
   Sum up the values and return the total number.
 */
-
 //Code Here
 
+const totalPopulation = (obj) => {
+  const {utah, california, texas, arizona} = obj
+  const sum = utah + california + texas + arizona
+  return sum
 
+}
 
 ////////// PROBLEM 4 //////////
-
 /*
   Write a function called ingredients that will take in an object. 
   This object will have 3 properties named carb, fat, and protein. 
@@ -66,13 +69,16 @@ function greeting( obj ) {
   Use object destructuring to save the property values to new variables. 
   Push these new variables to an array and return the array. 
 */
-
 //Code Here
 
-
+const ingredients = (obj) => {
+  const {carb, fat, protein} = obj;
+  const arr = [];
+  arr.push(carb,fat,protein)
+  return arr;
+}
 
 ////////// PROBLEM 5 //////////
-
 /*
   Now we will use object destructuring as the function's parameter instead of destructuring the object inside of the function declaration.
   Example:
@@ -87,7 +93,7 @@ function greeting( obj ) {
 
 //Code Here
 
-
+const largeNumbers = ({first, second, third}) => (first < second && first < third) ? first : (second < first && second < third) ? second : (third < first && third < second) ? third : null;
 
 ////////// PROBLEM 6 //////////
 
@@ -99,4 +105,4 @@ function greeting( obj ) {
 
 //Code Here
 
-
+const numberGroups = ({a, b, c}) => ( a.length > b.length && a.length > c.length) ? a : ( b.length > a.length && b.length > c.length) ? b : ( c.length > a.length && c.length > b.length) ? c : null; 

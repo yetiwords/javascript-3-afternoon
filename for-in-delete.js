@@ -11,25 +11,25 @@
   In the example below, we are accessing the property values. Uncomment the code below, run it and look at what prints in the console.
 */
 
-// var values = {
-//   one: 'These',
-//   two: ' are',
-//   three: ' the',
-//   four: ' property',
-//   five: ' values.'
-// } 
+var values = {
+  one: 'These',
+  two: ' are',
+  three: ' the',
+  four: ' property',
+  five: ' values.'
+} 
 
-// for(var key in values) {
-//   console.log(values[key])
-// }
+for(var key in values) {
+  console.log(values[key])
+}
 
 /*
   In this next example, we are accessing the property names themselves. Uncomment the code below, run it and look at what prints in the console.
 */
 
-// for(var key in values) {
-//   console.log(key)
-// }
+for(var key in values) {
+  console.log(key)
+}
 
 
 
@@ -40,37 +40,44 @@
 */
 
 function showValues( obj ) {
-  //Code Here
+  var str = '';
+  for(let key in obj) {
+    str += obj[key]
+  }
+  return str
 }
 
-
-
 ////////// PROBLEM 2 //////////
-
 /*
   Write a function called greaterThan10 that takes in an object. 
   Write a for in loop that loops over the object and changes any value that is great than 10 to 0. 
   Return the updated object.
 */
-
 //Code Here
 
-
+const greaterThan10 = obj => {
+  for (let key in obj) {
+    obj[key] > 10 ? obj[key] = 0 : null
+  }
+  return obj
+}
 
 ////////// PROBLEM 3 //////////
-
 /*
   Write a function called double that takes in an object.
   Write a for in loop that loops over the object and changes every value to be itself multipled by 2.
   Return the updated object.
 */
-
 //Code Here
 
-
+const double = obj => {
+  for (let key in obj) {
+      obj[key] *= 2
+  }
+  return obj
+}
 
 ////////// PROBLEM 4 //////////
-
 /*
   Write a function called secrets that will take in an object.
   Create an empty string variable.
@@ -78,9 +85,18 @@ function showValues( obj ) {
   If the property name starts with an 'sh', concatenate the value to the string variable.
   By the end of the for in loop, you should have a sentence, return that sentence.
 */
-
 //Code Here
 
+const secrets = (obj) => {
+  var str = '';
+  console.log('This is it', obj)
+  for (let key in obj) {
+    if (key.startsWith('sh')) {
+    str += obj[key]
+    } 
+  }
+  return str
+}
 
 
 /* 
@@ -112,7 +128,10 @@ function showValues( obj ) {
 
 //Code Here
 
-
+const removePassword = (obj) => {
+  delete obj.password;
+  return obj
+}
 
 ////////// PROBLEM 6 //////////
 
@@ -131,6 +150,12 @@ var deleteTheBigNumbers = {
 
 //Code Here
 
+const deleter = (obj) => {
+  for (let key in obj) {
+    obj[key] > 100 ? delete obj[key] : null
+  }
+}
+deleter(deleteTheBigNumbers);
 
 
 ////////// PROBLEM 7 //////////
@@ -144,7 +169,14 @@ var deleteTheBigNumbers = {
 
 //Code Here
 
-
+const startsWithK = (obj) => {
+  for (let key in obj) {
+    if (key.startsWith('k')) {
+      delete obj[key]
+      } 
+  }
+  return obj
+}
 
 ////////// PROBLEM 8 //////////
 
@@ -158,5 +190,14 @@ var deleteTheBigNumbers = {
 */
 
 //Code Here
+
+const hiddenTreasure = (obj) => {
+  for (let key in obj) {
+    if (!obj[key].includes('treasure')) {
+      delete obj[key]
+      } 
+  }
+  return obj
+}
 
 
